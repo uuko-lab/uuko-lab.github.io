@@ -1,1 +1,60 @@
-Hello World!
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>页面装修中 · 即将跳转</title>
+  <!-- 延迟 5 秒自动跳转 -->
+  <meta http-equiv="refresh" content="5; URL=https://lab.iuuko.com">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f5f5f5;
+      font-family: "Microsoft YaHei", sans-serif;
+      color: #333;
+      text-align: center;
+    }
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+    p {
+      font-size: 1rem;
+      margin: 0.2rem;
+    }
+    .countdown {
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin-top: 1rem;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>页面正在装修中…</h1>
+  <p>我们正在进行维护，马上回来！</p>
+  <div class="countdown">5 秒后自动跳转...</div>
+
+  <script>
+    (function() {
+      let sec = 5;
+      const el = document.querySelector('.countdown');
+      const timer = setInterval(() => {
+        sec--;
+        if (sec > 0) {
+          el.textContent = sec + ' 秒后自动跳转...';
+        } else {
+          clearInterval(timer);
+          el.textContent = '正在跳转…';
+        }
+      }, 1000);
+    })();
+  </script>
+
+</body>
+</html>
